@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Korean Grammar Adventure!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDF8F2; /* Soft cream background */
+            background-image:
+                linear-gradient(rgba(226, 201, 180, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(226, 201, 180, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .korean-font {
+            font-family: 'Gowun Dodum', sans-serif;
+        }
+        .tab-button {
+            transition: all 0.3s ease;
+            color: #6B7280; /* gray-500 */
+            border-bottom: 3px solid transparent;
+        }
+        .tab-button.active {
+            color: #D6816B; /* Custom Korean-themed color */
+            font-weight: 700;
+            border-bottom-color: #D6816B;
+        }
+        .content-section {
+            display: none;
+        }
+        .content-section.active {
+            display: block;
+        }
+        .feedback {
+            display: none;
+            padding: 0.75rem 1rem;
+            margin-top: 1rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            border-left-width: 4px;
+        }
+        .feedback.correct {
+            background-color: #EBF8F4;
+            color: #2C7A6B;
+            border-color: #4FD1C5;
+        }
+        .feedback.incorrect {
+            background-color: #FFF5F5;
+            color: #C53030;
+            border-color: #FC8181;
+        }
+        .quiz-option {
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            border: 2px solid #E5E7EB; /* gray-200 */
+        }
+        .quiz-option:hover {
+            border-color: #D6816B;
+            transform: translateY(-2px);
+        }
+        .card {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(226, 201, 180, 0.3);
+        }
+        .korean-icon {
+            font-size: 2rem;
+            margin-right: 1rem;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <div class="container mx-auto p-4 sm:p-6 md:p-8 max-w-4xl">
+        <!-- Header -->
+        <header class="text-center mb-10">
+            <h1 class="text-4xl md:text-5xl font-bold text-[#D6816B] korean-font">한국어 문법 완전 정복!</h1>
+            <p class="text-lg md:text-xl text-gray-600 mt-2">Let's Master Korean Grammar!</p>
+        </header>
+
+        <!-- Tabs for Navigation -->
+        <div class="flex justify-center border-b-2 border-gray-200 mb-8 space-x-2 sm:space-x-4">
+            <button class="tab-button text-sm sm:text-base pb-3 px-4 sm:px-6 active" onclick="showTab(0)">-(으)면서</button>
+            <button class="tab-button text-sm sm:text-base pb-3 px-4 sm:px-6" onclick="showTab(1)">-기로 하다</button>
+            <button class="tab-button text-sm sm:text-base pb-3 px-4 sm:px-6" onclick="showTab(2)">-아/어 보이다</button>
+        </div>
+
+        <!-- Content Sections -->
+        <main id="content-container">
+            <!-- Topic 1: -(으)면서 (While/As) -->
+            <section class="content-section active">
+                <div class="card p-6 rounded-2xl shadow-lg">
+                    <h2 class="text-3xl font-bold mb-4 korean-font">1. -(으)면서 <span class="text-xl text-gray-500 font-normal">(While doing...)</span></h2>
+                    <p class="mb-4 text-gray-700">This grammar point is used when the <strong class="text-[#D6816B]">same person</strong> performs two actions at the <strong class="text-[#D6816B]">same time</strong>. It's the perfect way to talk about multitasking!</p>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-r-lg mb-6">
+                        <h4 class="font-bold korean-font">사용법 (How to Use)</h4>
+                        <ul class="list-disc list-inside mt-2 text-gray-700">
+                            <li>Verb stem ends in a vowel or ㄹ: <strong class="font-semibold">-면서</strong> (e.g., 가다 → 가면서, 놀다 → 놀면서)</li>
+                            <li>Verb stem ends in a consonant: <strong class="font-semibold">-으면서</strong> (e.g., 먹다 → 먹으면서)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center"><span class="korean-icon">🎵</span><p class="text-lg korean-font">저는 <span class="font-bold text-blue-600">음악을 들으면서</span> 공부해요. (I study while listening to music.)</p></div>
+                        <div class="flex items-center"><span class="korean-icon">☕</span><p class="text-lg korean-font">커피를 <span class="font-bold text-blue-600">마시면서</span> 신문을 읽어요. (I read the newspaper while drinking coffee.)</p></div>
+                        <div class="flex items-center"><span class="korean-icon">📞</span><p class="text-lg korean-font">친구랑 <span class="font-bold text-blue-600">이야기하면서</span> 걸었어요. (I walked while talking with my friend.)</p></div>
+                    </div>
+
+                    <!-- Quiz Section -->
+                    <div class="mt-8 pt-6 border-t border-gray-200">
+                        <h3 class="text-2xl font-semibold mb-4 korean-font">퀴즈 타임! (Quiz Time!) 🧠</h3>
+                        <p class="mb-4">Which sentence correctly says "I cook while watching YouTube"?</p>
+                        <div class="space-y-3" id="quiz1">
+                            <div class="quiz-option p-3 rounded-lg" onclick="checkAnswer('quiz1', 'A')">A) 유튜브를 보면서 요리해요.</div>
+                            <div class="quiz-option p-3 rounded-lg" onclick="checkAnswer('quiz1', 'B')">B) 유튜브를 보고 요리해요.</div>
+                        </div>
+                        <div id="feedback-quiz1-A" class="feedback correct">정답! (Correct!) 🎉 "보면서" perfectly captures doing both actions at the same time. 잘했어요! (Well done!)</div>
+                        <div id="feedback-quiz1-B" class="feedback incorrect">아니에요. (Not quite!) "보고" means "watch and then...", implying you first watch YouTube, then you cook. The actions are sequential, not simultaneous.</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Topic 2: -기로 하다 (To decide to) -->
+            <section class="content-section">
+                <div class="card p-6 rounded-2xl shadow-lg">
+                    <h2 class="text-3xl font-bold mb-4 korean-font">2. -기로 하다 <span class="text-xl text-gray-500 font-normal">(Decided to...)</span></h2>
+                    <p class="mb-4 text-gray-700">This pattern expresses a <strong class="text-[#D6816B]">decision, resolution, or promise</strong>. It's used to talk about future plans that you have firmly decided on.</p>
+                    
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4 rounded-r-lg mb-6">
+                        <h4 class="font-bold korean-font">사용법 (How to Use)</h4>
+                        <p class="mt-2 text-gray-700">It's super easy! Just attach <strong class="font-semibold">-기로 하다</strong> to the verb stem. It doesn't matter if it ends in a vowel or consonant. (e.g., 가다 → 가기로 하다, 먹다 → 먹기로 하다)</p>
+                    </div>
+
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center"><span class="korean-icon">🚭</span><p class="text-lg korean-font">새해부터 담배를 <span class="font-bold text-green-600">끊기로 했어요</span>. (I decided to quit smoking from the new year.)</p></div>
+                        <div class="flex items-center"><span class="korean-icon">📚</span><p class="text-lg korean-font">우리는 주말에 도서관에서 <span class="font-bold text-green-600">공부하기로 했어요</span>. (We decided to study at the library on the weekend.)</p></div>
+                        <div class="flex items-center"><span class="korean-icon">✈️</span><p class="text-lg korean-font">다음 휴가 때 제주도에 <span class="font-bold text-green-600">가기로 했어요</span>. (I decided to go to Jeju Island for the next vacation.)</p></div>
+                    </div>
+
+                    <!-- Quiz Section -->
+                    <div class="mt-8 pt-6 border-t border-gray-200">
+                        <h3 class="text-2xl font-semibold mb-4 korean-font">퀴즈 타임! (Quiz Time!) 🧠</h3>
+                        <p class="mb-4">How do you say "I decided to learn Korean"?</p>
+                        <div class="space-y-3" id="quiz2">
+                            <div class="quiz-option p-3 rounded-lg" onclick="checkAnswer('quiz2', 'A')">A) 한국어를 배울 거예요.</div>
+                            <div class="quiz-option p-3 rounded-lg" onclick="checkAnswer('quiz2', 'B')">B) 한국어를 배우기로 했어요.</div>
+                        </div>
+                        <div id="feedback-quiz2-A" class="feedback incorrect">아깝다! (So close!) This means "I will learn Korean." It's a simple statement about the future, but it doesn't carry the strong feeling of a *decision* having been made.</div>
+                        <div id="feedback-quiz2-B" class="feedback correct">완벽해요! (Perfect!) 👍 This emphasizes that you made a firm decision or resolution to learn Korean.</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Topic 3: -아/어 보이다 (To look/seem) -->
+            <section class="content-section">
+                <div class="card p-6 rounded-2xl shadow-lg">
+                    <h2 class="text-3xl font-bold mb-4 korean-font">3. -아/어 보이다 <span class="text-xl text-gray-500 font-normal">(You look...)</span></h2>
+                    <p class="mb-4 text-gray-700">Use this pattern with <strong class="text-[#D6816B]">adjectives</strong> to describe the appearance or give an impression of someone or something. It's based on what you see and is like saying "looks," "seems," or "appears" in English.</p>
+                    
+                    <div class="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-r-lg mb-6">
+                        <h4 class="font-bold korean-font">사용법 (How to Use)</h4>
+                        <ul class="list-disc list-inside mt-2 text-gray-700">
+                            <li>Adj. stem's last vowel is ㅏ or ㅗ: <strong class="font-semibold">-아 보이다</strong> (e.g., 좋다 → 좋아 보이다)</li>
+                            <li>Adj. stem's last vowel is anything else: <strong class="font-semibold">-어 보이다</strong> (e.g., 맛있다 → 맛있어 보이다)</li>
+                            <li>Adjectives ending in 하다: <strong class="font-semibold">-해 보이다</strong> (e.g., 피곤하다 → 피곤해 보이다)</li>
+                        </ul>
+                    </div>
+
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center"><span class="korean-icon">😊</span><p class="text-lg korean-font">오늘 <span class="font-bold text-amber-600">행복해 보여요</span>. 무슨 좋은 일 있어요? (You look happy today. Did something good happen?)</p></div>
+                        <div class="flex items-center"><span class="korean-icon">🧥</span><p class="text-lg korean-font">그 코트는 <span class="font-bold text-amber-600">따뜻해 보여요</span>. (That coat looks warm.)</p></div>
+                        <div class="flex items-center"><span class="korean-icon">🍰</span><p class="text-lg korean-font">이 케이크는 정말 <span class="font-bold text-amber-600">맛있어 보여요</span>! (This cake looks really delicious!)</p></div>
+                    </div>
+
+                    <!-- Quiz Section -->
+                    <div class="mt-8 pt-6 border-t border-gray-200">
+                        <h3 class="text-2xl font-semibold mb-4 korean-font">퀴즈 타임! (Quiz Time!) 🧠</h3>
+                        <p class="mb-4">You see a new bag that looks expensive. What do you say?</p>
+                        <div class="space-y-3" id="quiz3">
+                            <div class="quiz-option p-3 rounded-lg" onclick="checkAnswer('quiz3', 'A')">A) 이 가방은 비싸 보여요.</div>
+                            <div class="quiz-option p-3 rounded-lg" onclick="checkAnswer('quiz3', 'B')">B) 이 가방은 비싸요.</div>
+                        </div>
+                        <div id="feedback-quiz3-A" class="feedback correct">대박! (Awesome!) 💯 You're judging by its appearance, so "비싸 보여요" (It looks expensive) is the perfect expression.</div>
+                        <div id="feedback-quiz3-B" class="feedback incorrect">조금만 더! (A little more!) "비싸요" is a factual statement ("It is expensive"). Since you're just guessing based on how it looks, "비싸 보여요" is more natural.</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        const tabs = document.querySelectorAll('.tab-button');
+        const content = document.querySelectorAll('.content-section');
+
+        function showTab(index) {
+            // Update tab buttons
+            tabs.forEach((tab, i) => {
+                tab.classList.toggle('active', i === index);
+            });
+
+            // Show/hide content sections
+            content.forEach((section, i) => {
+                section.classList.toggle('active', i === index);
+            });
+        }
+
+        function checkAnswer(quizId, selectedOption) {
+            // Hide all feedback for this quiz first
+            const allFeedback = document.querySelectorAll(`[id^="feedback-${quizId}"]`);
+            allFeedback.forEach(fb => fb.style.display = 'none');
+
+            // Show the specific feedback for the selected option
+            const feedbackElement = document.getElementById(`feedback-${quizId}-${selectedOption}`);
+            if (feedbackElement) {
+                feedbackElement.style.display = 'block';
+            }
+        }
+    </script>
+
+</body>
+</html>
