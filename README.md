@@ -25,8 +25,8 @@ This project serves as a mini-lesson and quiz platform focusing on three importa
 
 ### Netlify Link
 
-  * [https://korean-grammar-adventure.netlify.app/](https://www.google.com/search?q=https://korean-grammar-adventure.netlify.app/)
+  * [https://korean-grammar-adventure.netlify.app/](https://korean-grammar-adventure.netlify.app/)
 
 ### Gemini Conversation Link
 
-  * [https://gemini.google.com/app/fdc4058dd0b5fc56](https://www.google.com/search?q=https://gemini.google.com/app/fdc4058dd0b5fc56)
+  * [https://gemini.google.com/app/fdc4058dd0b5fc56](https://gemini.google.com/app/fdc4058dd0b5fc56)
